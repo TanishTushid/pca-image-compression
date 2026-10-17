@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCA Image Compressor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">PCA</div>
+          <span>Image Compressor</span>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn">＋</button>
+          <button class="icon-btn dark">◌</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="hero-card">
+          <div class="hero-copy">
+            <p class="eyebrow">Compression tool</p>
+            <h1>Smart size reduction for crisp visuals.</h1>
+            <p class="subtitle">Upload your PNG or JPG and pick a target file size.</p>
+          </div>
+          <div class="hero-tags">
+            <span>PNG/JPG</span>
+            <span>Up to 10MB</span>
+            <span>PCA optimized</span>
+          </div>
+        </section>
+
+        <section class="compress-panel">
+          <form id="compressForm" class="upload-form">
+            <label class="dropzone" for="fileInput">
+              <input id="fileInput" type="file" accept="image/jpeg,image/png" />
+              <span class="drop-icon">⬆</span>
+              <strong>Drop an image here</strong>
+              <small>PNG or JPG up to 10 MB</small>
+            </label>
+
+            <div class="controls">
+              <div class="slider-wrap">
+                <label for="targetMb">
+                  <span>Target size</span>
+                  <strong id="targetValue">2.5 MB</strong>
+                </label>
+                <input id="targetMb" type="range" min="0.1" max="10" step="0.1" value="2.5" />
+              </div>
+
+              <button type="submit" class="submit-btn">Compress image</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="resultBox" class="result-box" hidden>
+          <div class="preview-panel">
+            <img id="compressedImage" alt="Compressed output preview" />
+          </div>
+          <div class="result-stats">
+            <div class="stat-card">
+              <span>Original</span>
+              <strong id="origSize">-</strong>
+            </div>
+            <div class="stat-card">
+              <span>Compressed</span>
+              <strong id="newSize">-</strong>
+            </div>
+            <div class="stat-card">
+              <span>PSNR</span>
+              <strong id="psnr">-</strong>
+            </div>
+            <a id="downloadButton" class="download-btn" href="#" download="compressed-image.jpg" hidden>
+              Download image
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/js/scripts.js"></script>
+  </body>
+</html>
